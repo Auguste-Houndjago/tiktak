@@ -35,6 +35,7 @@ export async function auth(credential: string){
    await ( await cookies()).set({name:"auth_token", value:token , maxAge}) 
 
 
+
    return user
     // createUser(decoded)
 
