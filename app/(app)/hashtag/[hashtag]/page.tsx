@@ -5,14 +5,13 @@ import { FaSlackHash } from 'react-icons/fa'
 
 interface PageProps {
   params: { hashtag: string }
-  
 }
 
 export default async function Page({ params }: PageProps) {
-  const { hashtag } = params; 
-  console.log(hashtag)
+  const hashtag = decodeURIComponent(params.hashtag); 
+  console.log(hashtag);
 
-  const videos = await getHashtagVideos(hashtag)
+  const videos = await getHashtagVideos(hashtag);
 
   return (
     <div className="space-y-24">
@@ -32,5 +31,5 @@ export default async function Page({ params }: PageProps) {
         <VideoList videos={videos} />
       </div>
     </div>
-  )
+  );
 }
