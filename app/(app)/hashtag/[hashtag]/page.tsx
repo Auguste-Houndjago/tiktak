@@ -8,7 +8,8 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
-  const hashtag = decodeURIComponent(params.hashtag); 
+  // @ts-ignore
+  const hashtag = decodeURIComponent(params.hashtag);
   console.log(hashtag);
 
   const videos = await getHashtagVideos(hashtag);
