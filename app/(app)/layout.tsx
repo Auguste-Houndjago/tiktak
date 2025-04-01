@@ -41,8 +41,9 @@ export default function RootLayout({
               <Sidebar/>
             </div>
             <div className="flex p-8 grow h-full overflow-auto max-h-[85vh]"></div>
-        </main>
+
         {children}
+        </main>
         </Providers>
       </body>
     </html>

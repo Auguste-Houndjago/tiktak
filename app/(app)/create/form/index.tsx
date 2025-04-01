@@ -26,7 +26,7 @@ import { Button } from "@/components/ui/button";
 import VideoForm from "./videoForm";
 import { useToast } from "@/hooks/use-toast";
 import useAuth from "@/stores/auth";
-// import { createVideo } from "@/services/video";
+import { createVideo } from "@/services/video";
 import { useRouter } from "next/navigation";
 
 export default function Form() {
@@ -46,19 +46,19 @@ export default function Form() {
     if (!isLoggedIn)
       return toast({ title: "You must be logged in to post a video!" });
     setIsLoading(true);
-    // const videoDoc = await createVideo({ ...data, video: video });
-    // if (!videoDoc)
-    //   return toast({ title: "An error occurerd trying to upload the video!" });
+    const videoDoc = await createVideo({ ...data, video: video });
+    if (!videoDoc)
+      return toast({ title: "An error occurerd trying to upload the video!" });
 
-    // toast({ title: "Video Created Successfully" });
-    // router.push(`/video/${videoDoc._id}`);
-    // setIsLoading(false);
+    toast({ title: "Video Created Successfully" });
+    router.push(`/video/${videoDoc._id}`);
+    setIsLoading(false);
   };
   return (
     <FormComp {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col md:grid md:grid-cols-2 gap-3 w-full max-w-[750px] mx-auto"
+        className="flex flex-col md:grid md:grid-cols-2 gap-4 w-full max-w-[750px] mx-auto"
       >
         <VideoForm onVideoChange={setVideo} />
         <FormField

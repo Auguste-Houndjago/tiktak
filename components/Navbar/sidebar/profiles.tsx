@@ -14,7 +14,7 @@ export default async function Profiles() {
           <Link 
             href={`/user/${profile._id}`}
             key={profile._id}
-            className="flex items-center gap-2 p-2 w-full h-full hover:bg-secondary bg-secondary/50 rounded"
+            className="flex items-center gap-2 p-2 w-full h-full hover:bg-secondary bg-secondary/50 rounded-md"
           >
             <Avatar className="w-8 h-8">
               <AvatarImage src={profile.picture_url} />

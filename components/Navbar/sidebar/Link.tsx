@@ -13,7 +13,7 @@ export default function Links() {
     {links.map(link => (
         <li key={link.route} className="cursor-pointer">
                 <Link href={link.route}>
-                <div className={`flex items-center gap-4 text-xl p-4 rounded-md hover:font-semibol0d0 hover:text-primary transition-all ${path==link.route ? 'bg-primary/5 text-primary font-semibold': "" } `}>
+                <div className={`flex items-center gap-2 text-xl p-3 rounded-md hover:font-semibol0d0 hover:text-primary transition-all ${path==link.route ? 'bg-primary/5 text-primary font-semibold': "" } `}>
                     {link.icon}
                     {link.label}
                 </div>
@@ -21,7 +21,7 @@ export default function Links() {
         </li>
     ))}
 
-</ul>
+</ul> 
   )
 }
 

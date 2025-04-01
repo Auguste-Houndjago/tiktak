@@ -1,9 +1,10 @@
-import Image from "next/image";
+export const revalidate = 0;
+import VideoList from "@/components/VideoList";
+import { getVideos } from "@/services/video";
 
-export default function Home() {
+export default async function Home() {
+  const videos = await getVideos();
   return (
-<div className="flex items-center justify-center">
-  page
-</div>
+    <VideoList videos={videos} />
   );
 }

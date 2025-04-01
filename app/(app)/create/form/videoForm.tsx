@@ -35,7 +35,7 @@ export default function VideoForm(props: Props) {
   return (
     <>
       <FormLabel>Video</FormLabel>
-      <div className=" rounded-md col-span-2 relative min-h-[200px] border border-dashed border-secondary hover:border-primary p-4">
+      <div className=" justify-center items-center rounded-md col-span-2 relative min-h-[200px] border border-dashed border-secondary hover:border-primary p-4">
         <label className="  cursor-pointer">
           <div className="flex flex-col items-center justify-center h-full">
             <div className="flex flex-col items-center justify-center">
