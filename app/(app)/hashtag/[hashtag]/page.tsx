@@ -1,24 +1,11 @@
-import React from "react";
-import { FaSlackHash } from "react-icons/fa";
-
-interface PageProps {
-  params: { hashtag: string };
-}
-
-export default function Page({ params }: PageProps) {
+export default function Page({ params }: { params: { hashtag?: string } }) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen space-y-6">
-      <div className="flex items-center gap-4 border-b border-gray-300 pb-4 text-4xl">
-        <div className="p-4 flex justify-center items-center bg-gray-200 rounded-full">
-          <FaSlackHash />
-        </div>
-        <div className="capitalize font-bold">{params.hashtag}</div>
-      </div>
-      <p className="text-gray-500">Hashtag affiché sur cette page.</p>
+    <div>
+      <h1>Hashtag Page</h1>
+      <p>Hashtag: {params?.hashtag ?? "Aucun hashtag trouvé"}</p>
     </div>
   );
 }
-
 
 
 
