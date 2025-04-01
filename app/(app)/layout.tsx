@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Providers from "./providers/Providers";
+
+import Providers from "../providers/Providers";
+import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Navbar/sidebar";
 
 
 const geistSans = Geist({
@@ -34,6 +36,12 @@ export default function RootLayout({
 
    
         <Navbar/>
+        <main className="flex ">
+            <div className="hidden md:inline">
+              <Sidebar/>
+            </div>
+            <div className="flex p-8 grow h-full overflow-auto max-h-[85vh]"></div>
+        </main>
         {children}
         </Providers>
       </body>

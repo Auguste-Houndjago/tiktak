@@ -1,6 +1,6 @@
 'use server'
 import jwt from "jsonwebtoken"
-import { createUser } from "../user"
+import { createUser, getUserById } from "../user"
 import { cookies } from "next/headers"
 
 
@@ -33,14 +33,31 @@ export async function auth(credential: string){
 
 
    await ( await cookies()).set({name:"auth_token", value:token , maxAge}) 
-
+   console.log(decoded)
 
 
    return user
-    // createUser(decoded)
+}
 
+export async function getAuthedUser(){
+const id =  await getAuthedUserId()
 
+if (!id) {
+    return
+} 
+const user = await getUserById(id)
+ return user
+}
 
-    
-    console.log(decoded)
+export async function getAuthedUserId(){
+    const token = (await cookies()).get("auth_token")?.value 
+
+    if(!token) return 
+    const decoded = jwt.verify(token , privateKeY) as { _id : string }
+    return decoded._id
+
+}
+
+export async function removeAuthedUserCookie (){
+(await cookies()).delete("auth_token")
 }

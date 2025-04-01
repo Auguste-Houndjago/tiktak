@@ -16,3 +16,18 @@ export async function createUser(decodedUser: Decoded){
 
  return user as User
 }
+
+export async function getLatestUsers(){
+    const query = `*[_type=="user"][0...3] | order(_createdAt desc)`
+    const res = await sanity.fetch(query)
+  
+    return res
+     
+    }
+
+export async function getUserById(id: string){
+    const query = `*[_type=="user" && _id=="${id}"][0]`
+    const user = await sanity.fetch(query)
+    return user
+     
+    }
