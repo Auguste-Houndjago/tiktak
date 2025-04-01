@@ -6,8 +6,13 @@ export default function VideoList({ videos }: {
     videos: DetailedVideo[]
 }) {
   return (
-    <ul>
-        {videos.map(video => <VideoCard key={video._id} video={video} /> )}
+    <ul className=''>
+        {videos.map(video =>
+          <li key={video._id} className='my-6' >
+          <VideoCard video={video} />
+          </li>
+          
+          )}
     </ul>
   )
 }

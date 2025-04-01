@@ -74,6 +74,9 @@ export async function getHashtagVideos(hashtag: string) {
 }
 
 export async function searchVideos(value: string) {
-  const videos = await getVideos()
-  return videos.filter(video => video.caption.toLowerCase().includes(value) || video.description.toLowerCase().includes(value))
+  const videos = await getVideos();
+  return videos.filter(video => 
+    video.caption?.toLowerCase().includes(value.toLowerCase()) || 
+    video.description?.toLowerCase().includes(value.toLowerCase())
+  );
 }

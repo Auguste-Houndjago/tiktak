@@ -1,4 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { getLatestUsers } from "@/services/user";
 import { User } from "@/types/user";
 import Link from "next/link";
@@ -7,8 +8,10 @@ import React from "react";
 export default async function Profiles() {
   const profiles = await getLatestUsers();
   return (
-    <div className="space-y-2">
-      <span className="font-semibold text-neutral-500">Latest Users</span>
+    <div className="space-y-2 flex flex-col ">
+      <span className="font-semibold text-center text-neutral-500">Latest Users</span>
+
+      <ScrollArea className="h-72  rounded-md ">
       <ul className="space-y-2">
         {profiles.map((profile :User) => (
           <Link 
@@ -26,6 +29,7 @@ export default async function Profiles() {
           </Link>
         ))}
       </ul>
+      </ScrollArea>
     </div>
   );
 }

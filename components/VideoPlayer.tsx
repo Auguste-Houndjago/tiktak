@@ -18,13 +18,13 @@ const [isPaused, setIsPaused] = useState(true)
     }
   }, [isPaused])
   return (
-    <div onClick={() => setIsPaused(!isPaused)} className="relative bg-secondary rounded max-w-full max-h-[80vh] flex justify-center items-center aspect-[9/16]">
+    <div onClick={() => setIsPaused(!isPaused)} className="relative bg-secondary  w-full  max-w-[400px] min-h-[500px] max-h-[80vh] flex justify-center items-center aspect-[9/16] rounded-md ">
       <video ref={videoRef} className="object-contain" loop>
         <source src={video.video_url} />
         <div>Coundnt load the video</div>
       </video>
       <div
-      className={`transition-all hover:opacity-100 ${isPaused ? 'opacity-100' : 'opacity-0'} z-10 bg-black/40 absolute inset-0 flex items-center justify-center`}
+      className={`transition-all rounded-md hover:opacity-100 ${isPaused ? 'opacity-100' : 'opacity-0'} z-10 bg-black/40 absolute inset-0 flex items-center justify-center`}
       >
         {isPaused ? <FaPlay className="text-4xl" /> : null}
       </div>
