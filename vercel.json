@@ -9,9 +9,16 @@
           },
           {
             "key": "Cross-Origin-Embedder-Policy",
-            "value": "unsafe-none"
+            "value": "require-corp"
           }
         ]
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/studio",
+        "destination": "/",
+        "permanent": false
       }
     ]
   }
