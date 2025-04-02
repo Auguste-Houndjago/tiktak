@@ -18,15 +18,21 @@ export default function Providers(props: Props) {
   const setAuth = useAuth(state => state.setAuth)
 
   useEffect(() => {
-
     getAuthedUser().then(user => {
       if (!user) return;
-
     })
   }, []);
 
   return (
-    <GoogleOAuthProvider clientId={clientId}  >
+    <GoogleOAuthProvider 
+      clientId={clientId}
+      onScriptLoadError={(error) => {
+        console.error('Google Script Load Error:', error);
+      }}
+      onScriptLoadSuccess={() => {
+        console.log('Google Script Loaded Successfully');
+      }}
+    >
       <Toaster />
       {children}
     </GoogleOAuthProvider>

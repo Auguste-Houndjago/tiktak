@@ -10,6 +10,10 @@
 !.yarn/releases
 !.yarn/versions
 
+
+#sanity studio
+/studio
+
 # testing
 /coverage
 
