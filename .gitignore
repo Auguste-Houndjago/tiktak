@@ -12,7 +12,7 @@
 
 
 #sanity studio
-/studio
+
 
 # testing
 /coverage
@@ -38,7 +38,7 @@ yarn-error.log*
 .env*
 
 # vercel
-.vercel
+# .vercel
 
 # typescript
 *.tsbuildinfo
