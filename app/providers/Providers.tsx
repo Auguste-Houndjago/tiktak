@@ -26,8 +26,8 @@ export default function Providers(props: Props) {
   return (
     <GoogleOAuthProvider 
       clientId={clientId}
-      onScriptLoadError={(error) => {
-        console.error('Google Script Load Error:', error);
+      onScriptLoadError={() => {
+        console.error('Google Script Load Error');
       }}
       onScriptLoadSuccess={() => {
         console.log('Google Script Loaded Successfully');
