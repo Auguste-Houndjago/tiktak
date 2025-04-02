@@ -2,11 +2,19 @@ import VideoList from "@/components/VideoList";
 import { searchVideos } from "@/services/video";
 import React from "react";
 
+interface PageProps {
+  params: Promise<{
+    value: string;
+  }>;
+
+}
+
+
 export default async function Page({
-  params: { value },
-}: {
-  params: { value: string };
-}) {
+  params
+}: PageProps) {
+  
+  const { value } = await params;
   const videos = await searchVideos(value);
   return (
     <div className="space-y-24">
