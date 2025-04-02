@@ -2,8 +2,7 @@
 
 import { getAuthedUser } from "@/services/auth";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { useEffect } from "react";
-import { gapi } from "gapi-script";
+import React, { useEffect } from "react";
 import useAuth from "@/stores/auth";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -11,36 +10,27 @@ type Props = {
   children: React.ReactNode;
 };
 
-const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID! || "";
+const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
 
-export default function Providers({ children }: Props) {
+export default function Providers(props: Props) {
+  const { children } = props;
   const setAuth = useAuth((state) => state.setAuth);
 
   useEffect(() => {
-    const initializeGapi = () => {
-      gapi.client.init({
-        clientId: clientId,
-        scope: "email profile",
-      }).then(() => {
-        console.log("Google API initialized successfully");
-      }).catch((error:any) => {
-        console.error("Error initializing Google API:", error);
-      });
-    };
-
-    gapi.load("client:auth2", initializeGapi);
-  }, []);
-
-  useEffect(() => {
     getAuthedUser().then((user) => {
-      if (user) {
-        setAuth(user);
-      }
+      if (!user) return;
+      setAuth(user);
+    }).catch((error: Error) => {
+      console.error('Error fetching authenticated user:', error);
     });
-  }, []);
+  }, [setAuth]);
 
   return (
-    <GoogleOAuthProvider clientId={clientId}>
+    <GoogleOAuthProvider 
+      clientId={clientId}
+      onScriptLoadError={() => console.error('Google Script Load Error')}
+      onScriptLoadSuccess={() => console.log('Google Script Loaded Successfully')}
+    >
       <Toaster />
       {children}
     </GoogleOAuthProvider>
