@@ -10,6 +10,7 @@ import { IoMdShare } from "react-icons/io"
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 import { getComments, hasUserCommented } from "@/services/comment";
+import VideoButton from "./VideoButton";
 
 type Props = {
   params: { id: string };
@@ -43,25 +44,3 @@ export default async function Page({ params: { id } }: Props) {
   );
 }
 
-export function VideoButton({
-  icon,
-  count,
-  active,
-  type
-}: {
-  icon: React.ReactNode;
-  count?: number;
-  active?: boolean;
-  type?: "button" | "submit"
-} ) {
-  const showCounter = !Number.isNaN(count);
-  return (
-    <button
-    type={type || "button"}
-      className={` ${showCounter ? "flex items-center gap-1 text-xl" : "text-2xl"} p-3 bg-secondary rounded-full hover:bg-secondary/50`}
-    >
-      <span className={`${active ? "text-primary" : ""}`}>{icon}</span>
-      {showCounter ? <span className="text-white">{count}</span> : null}
-    </button>
-  );
-}
