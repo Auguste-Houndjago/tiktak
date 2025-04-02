@@ -7,7 +7,7 @@ interface PageProps {
   params: Promise<{
     hashtag: string;
   }>;
-  searchParams: { [key: string]: string | string[] | undefined };
+
 }
 
 export default async function Page({ params }: PageProps) {
