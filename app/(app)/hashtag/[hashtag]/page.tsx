@@ -3,9 +3,11 @@ import { getHashtagVideos } from '@/services/video'
 import React from 'react'
 import { FaSlackHash } from 'react-icons/fa'
 
-export default async function Page({ params: { hashtag }  }: { params: { hashtag: string } }) {
-    console.log(hashtag)
-    const videos = await getHashtagVideos(hashtag)
+export default async function Page({ params }: { params: { hashtag: string } }) {
+  const { hashtag } = params;
+  console.log(hashtag);
+  const videos = await getHashtagVideos(hashtag);
+  
   return (
     <div className="space-y-24">
     <div className="flex items-center gap-20 border-b border-b-secondary pb-8 text-5xl">
