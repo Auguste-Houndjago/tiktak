@@ -21,10 +21,6 @@ export default defineConfig({
     cors: {
       origin: process.env.SANITY_STUDIO_ORIGIN || "http://localhost:3000",
       credentials: true
-    },
-    headers: {
-      "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
-      "Cross-Origin-Embedder-Policy": "credentialless"
     }
   },
   schema,
