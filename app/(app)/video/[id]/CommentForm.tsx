@@ -38,14 +38,14 @@ export default function CommentForm({ videoId }: Props) {
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex items-center justify-between gap-3">
-        <FormField
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex items-center  p-2 justify-between gap-3">
+        <FormField 
           control={form.control}
           name="text"
           render={({ field }) => (
-            <FormItem className="grow">
+            <FormItem className="grow ">
               <FormControl>
-                <Input
+                <Input className=" focus-visible:outline-none"
                   placeholder="Write a comment about the video..."
                   {...field}
                 />

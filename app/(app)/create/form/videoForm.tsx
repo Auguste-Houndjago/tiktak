@@ -35,36 +35,37 @@ export default function VideoForm(props: Props) {
   return (
     <>
       <FormLabel>Video</FormLabel>
-      <div className=" justify-center items-center rounded-md col-span-2 relative min-h-[200px] border border-dashed border-secondary hover:border-primary p-4">
-        <label className="  cursor-pointer">
-          <div className="flex flex-col items-center justify-center h-full">
-            <div className="flex flex-col items-center justify-center">
-              <p className="text-xl font-semibold">Upload Video</p>
-              <span>
-                <TbVideo />
-              </span>
-            </div>
-          </div>
-          <input
-            type="file"
-            name="upload-video"
-            accept=".mp4"
-            className="w-0 h-0"
-            onChange={onVideoUpload}
-          />
-        </label>
-        {videoURL ? (
-          <video
-            ref={videoRef}
-            autoPlay
-            controls={true}
-            loop
-            className="absolute inset-0 w-full h-full pointer-events-none object-cover rounded-md "
-          >
-            <source src={videoURL} />
-          </video>
-        ) : null}
+      <div className="flex flex-col justify-center items-center rounded-md col-span-2 min-h-[200px] border border-dashed border-secondary hover:border-primary p-4">
+  <label className="cursor-pointer w-full h-full flex flex-col items-center justify-center">
+    {!videoURL && (
+      <div className="flex flex-col items-center justify-center">
+        <p className="text-xl font-semibold">Upload Video</p>
+        <span>
+          <TbVideo />
+        </span>
       </div>
+    )}
+    <input
+      type="file"
+      name="upload-video"
+      accept=".mp4"
+      className="hidden"
+      onChange={onVideoUpload}
+    />
+  </label>
+  {videoURL && (
+    <video
+      ref={videoRef}
+      autoPlay
+      controls
+      loop
+      className="w-full h-full object-cover rounded-md"
+    >
+      <source src={videoURL} />
+    </video>
+  )}
+</div>
+
     </>
   );
 }

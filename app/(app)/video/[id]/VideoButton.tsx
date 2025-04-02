@@ -13,10 +13,10 @@ export default function VideoButton({
     return (
       <button
       type={type || "button"}
-        className={` ${showCounter ? "flex items-center gap-1 text-xl" : "text-2xl"} p-3 bg-secondary rounded-full hover:bg-secondary/50`}
+        className={` ${showCounter ? "flex items-center gap-1 text-xl" : "text-2xl"} py-2 px-4 bg-secondary rounded-full hover:bg-secondary/50`}
       >
         <span className={`${active ? "text-primary" : ""}`}>{icon}</span>
-        {showCounter ? <span className="text-white">{count}</span> : null}
+        {showCounter ? <span className="text-foreground">{count}</span> : null}
       </button>
     );
   }

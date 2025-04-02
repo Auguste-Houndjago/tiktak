@@ -16,9 +16,9 @@ export default async function Page({ params }: PageProps) {
   const videos = await getHashtagVideos(hashtag);
   
   return (
-    <div className="space-y-24">
-    <div className="flex items-center gap-20 border-b border-b-secondary pb-8 text-5xl">
-      <div className='p-8 flex justify-center items-center bg-secondary rounded-full'>
+    <div className="space-y-12">
+    <div className="flex items-center gap-x-12 border-b border-b-secondary pb-8 text-5xl">
+      <div className='p-6 flex justify-center items-center bg-secondary rounded-full'>
         <FaSlackHash />
       </div>
       <div className='capitalize font-bold'>
