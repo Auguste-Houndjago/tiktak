@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { VideoButton } from "./page";
+
 import { IoHeart } from "react-icons/io5";
 import { getVideoLikesInfo, likeOrDislikeVideo } from "@/services/like";
 import useAuth from "@/stores/auth";
 import { useToast } from "@/hooks/use-toast";
+import VideoButton from "./VideoButton";
 
 type Info = { count: number; hasLiked: boolean };
 type Props = {
@@ -35,7 +36,7 @@ export default function LikeButton({ videoId }: Props) {
     await likeOrDislikeVideo(videoId, likeInfo.hasLiked);
   };
   return (
-    <form action={handleLikeOrDislike}>
+    <form onSubmit={handleLikeOrDislike}>
       <VideoButton
         type="submit"
         icon={<IoHeart />}

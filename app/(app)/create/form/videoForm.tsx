@@ -57,8 +57,7 @@ export default function VideoForm(props: Props) {
           <video
             ref={videoRef}
             autoPlay
-            controls={false}
-            muted
+            controls={true}
             loop
             className="absolute inset-0 w-full h-full pointer-events-none object-cover rounded-md "
           >

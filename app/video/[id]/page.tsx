@@ -12,10 +12,16 @@ import CommentList from "./CommentList";
 import { getComments, hasUserCommented } from "@/services/comment";
 import VideoButton from "./VideoButton";
 
-type Props = {
-  params: { id: string };
-};
-export default async function Page({ params: { id } }: Props) {
+
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
+
+}
+
+export default async function Page({ params }: PageProps) {
+  const {id} = await params;
   const video = await getVideo(id);
   //pass the comments as props to <CommentList />
   const comments = await getComments(id)
