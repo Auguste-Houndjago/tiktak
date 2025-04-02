@@ -12,7 +12,7 @@ export default async function Profiles() {
       <span className="font-semibold text-center text-neutral-500">Latest Users</span>
 
       <ScrollArea className="h-72  rounded-md ">
-      <ul className="space-y-2">
+      <ul className="space-y-2 p-2">
         {profiles.map((profile :User) => (
           <Link 
             href={`/user/${profile._id}`}

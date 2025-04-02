@@ -13,8 +13,8 @@ export default function Hashtag(props: Props) {
       : h;
   if (!hashtag) return null;
   return (
-    <Link href={`/hashtag/${hashtag.route}`}>
-      <div className="w-fit flex items-center gap-1 rounded-full border border-secondary hover:border-primary hover:bg-primary/5 transition-all px-3 py-2.5 font-semibold">
+    <Link className="rounded-full" href={`/hashtag/${hashtag.route}`}>
+      <div className="w-fit flex items-center gap-1 rounded-full border border-secondary hover:border-primary hover:bg-primary/5 transition-all px-3 py-2 font-semibold">
         <span>{hashtag.icon}</span>
         <span>{hashtag.label}</span>
       </div>
