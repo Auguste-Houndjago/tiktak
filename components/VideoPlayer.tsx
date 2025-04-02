@@ -20,7 +20,7 @@ const [isPaused, setIsPaused] = useState(true)
   return (
 <div 
   onClick={() => setIsPaused(!isPaused)} 
-  className="relative bg-secondary w-full sm:w-auto max-w-[400px] md:w-42 sm:max-w-[90vw] min-h-32 max-h-[90vh] flex justify-center items-center aspect-[9/16] rounded-md"
+  className="relative bg-secondary w-full sm:w-auto  md:w-56 sm:max-w-[90vw] min-h-32 max-h-[90vh] flex justify-center items-center aspect-[9/16] rounded-md"
 >
   <video ref={videoRef} className="object-contain w-full h-auto" loop>
     <source src={video.video_url} />
