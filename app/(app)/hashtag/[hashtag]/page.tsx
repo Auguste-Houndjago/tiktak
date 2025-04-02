@@ -3,7 +3,14 @@ import { getHashtagVideos } from '@/services/video'
 import React from 'react'
 import { FaSlackHash } from 'react-icons/fa'
 
-export default async function Page({ params }: { params: { hashtag: string } }) {
+interface PageProps {
+  params: {
+    hashtag: string;
+  };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export default async function Page({ params }: PageProps) {
   const { hashtag } = params;
   console.log(hashtag);
   const videos = await getHashtagVideos(hashtag);
