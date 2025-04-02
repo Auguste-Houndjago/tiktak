@@ -4,14 +4,14 @@ import React from 'react'
 import { FaSlackHash } from 'react-icons/fa'
 
 interface PageProps {
-  params: {
+  params: Promise<{
     hashtag: string;
-  };
+  }>;
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
 export default async function Page({ params }: PageProps) {
-  const { hashtag } = params;
+  const { hashtag } = await params;
   console.log(hashtag);
   const videos = await getHashtagVideos(hashtag);
   
